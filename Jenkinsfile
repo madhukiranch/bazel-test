@@ -7,6 +7,9 @@ node {
     try{
         stage('Checkout') {
             checkout scm
+            
+            
+            
         }
         stage('environmental variables') {
            sh 'env'
