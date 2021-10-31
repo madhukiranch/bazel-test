@@ -6,10 +6,10 @@ timeout(time: 10, unit: 'MINUTES'){
 node {
     try{
         stage('Checkout') {
+            
+            echo 'Pulling...' + env.BRANCH_NAME
             checkout scm
-            
-            
-            
+           exit 1            
         }
         stage('environmental variables') {
            sh 'env'
