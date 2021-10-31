@@ -14,6 +14,7 @@ node {
         stage('Docker build') 
         {
          dockerImage = docker.build("test-image",'.')
+            
              
         }
         stage('BUILD') 
@@ -44,8 +45,7 @@ node {
        throw error
    } finally {
        cleanWs()
-       //step $class: 'JUnitResultArchiver', testResults: '**/TEST-*.xml'
-   }
+    }
 }
 }
 }
