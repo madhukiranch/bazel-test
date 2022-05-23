@@ -1,5 +1,7 @@
 # bazel-test
+
 Bazel with docker
+
 Environment set up :
 build docker file :
 CMD :  docker build -t bazel:1.0 .
