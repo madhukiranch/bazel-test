@@ -6,7 +6,10 @@ timeout(time: 10, unit: 'MINUTES'){
 node {
     try{
         stage('Checkout') {
+            
+            echo 'Pulling...' + env.BRANCH_NAME
             checkout scm
+           exit 1            
         }
         stage('environmental variables') {
            sh 'env'
@@ -14,6 +17,7 @@ node {
         stage('Docker build') 
         {
          dockerImage = docker.build("test-image",'.')
+            
              
         }
         stage('BUILD') 
@@ -44,8 +48,7 @@ node {
        throw error
    } finally {
        cleanWs()
-       //step $class: 'JUnitResultArchiver', testResults: '**/TEST-*.xml'
-   }
+    }
 }
 }
 }
