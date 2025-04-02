@@ -16,7 +16,7 @@ rather describe it from a higher level of abstraction ..._
 - [x] Requires Downtime*
 - [x] No Rollback possible*
 
-\*If any of these are selected, please describe why in the [PR Details](#pr-details) section.
+\*If any of these are selected, please describe why in the  section.
 
 #### PR Author Checklist
 
