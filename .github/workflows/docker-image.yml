@@ -20,9 +20,10 @@ jobs:
     
   Test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
         docker run --rm  bazel_image bazel --version
-        docker run --rm  bazel_image bazel build //...
+        docker run --rm  bazel_image bazel build //... 
