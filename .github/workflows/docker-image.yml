@@ -9,10 +9,13 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag bazel:$(date +%s)
+      run: |
+        docker build . --file Dockerfile --tag bazel_image
+        docker run --rm  bazel_image bazel --version
+    
+      
