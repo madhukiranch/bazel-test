@@ -31,3 +31,18 @@ jobs:
 
     - name: Check Bazel version
       run: bazel build //...
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: |
+          docker build -t my-bazel-image .
+      - name: Run build inside container
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace my-bazel-image bazel --version
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace my-bazel-image bazel build //...
+          
+ 
+ 
