@@ -17,8 +17,7 @@ jobs:
     - name: Build the Docker image
       run: |
         echo "i am running on local machine hostname : "$hostname" "
-        #docker build . --file Dockerfile --tag bazel_image
-        #docker run --rm  bazel_image bazel --version
+        printenv
     
   Test:
     runs-on: ubuntu-latest
